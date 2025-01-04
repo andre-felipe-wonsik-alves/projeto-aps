@@ -1,2 +1,11 @@
-# projeto-aps
-repositório para os códigos envolvendo o projeto de Análise e Projeto de Software
+# Formações UTFPR
+
+## Requisitos do projeto
+- nodejs (![https://nodejs.org/en/download])
+- npm
+
+## Setup básico
+Execute comando para baixar as dependências na sua máquina: `npm install`
+
+## Usando POO no TypeScript
+- fonte: ![https://medium.com/@habbema/typescript-programa%C3%A7%C3%A3o-orientada-a-objetos-poo-c19e4cec08c3]
