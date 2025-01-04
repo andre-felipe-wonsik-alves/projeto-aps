@@ -1,7 +1,7 @@
 # Formações UTFPR
 
 ## Requisitos do projeto
-- nodejs ([https://nodejs.org/en/download](download aqui))
+- nodejs [(fazer o download)](https://nodejs.org/en/download)
 - npm
 
 ## Setup básico
