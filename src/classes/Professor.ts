@@ -1,4 +1,6 @@
-class Professor extends ServidorUTFPR {
+const ServidorUTFPR = require("./ServidorUtfpr")
+
+export class Professor extends ServidorUTFPR {
     // definição dos atributos
     private idProfessor: number;
 
