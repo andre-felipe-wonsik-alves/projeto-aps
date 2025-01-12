@@ -1,15 +1,15 @@
 const Professor = require("./Professor")
 
 export class Participante extends Professor{
-    // definição dos atributos
-    private idParticipante: number;
 
     // método construtor
-    constructor(idParticipante: number){
-        // super(Professor1.getIdProfessor());
+    constructor(
+        private idParticipante: number, 
+        private idProfessor: number
+    ){
         super()
-        this.professor = Professor.getIdProfessor();
-
+        
+        this.idProfessor = Professor.getIdProfessor();
         this.idParticipante = idParticipante;
     }
 
