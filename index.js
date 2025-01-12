@@ -1,4 +1,4 @@
-import { helloWorld } from "./src/imprimirCertificado/index.js";
+const lib = require("./src/imprimirCertificado/index.ts");
 
-helloWorld();
+lib.helloWorld();
 console.log("main");
