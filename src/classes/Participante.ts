@@ -1,8 +1,10 @@
 const Professor = require("./Professor")
 
 export class Participante extends Professor{
-
+    
     // método construtor
+    // import { ViewService } from "./view.service";
+    // public viewService: ViewService,
     constructor(
         private idParticipante: number, 
         private idProfessor: number
