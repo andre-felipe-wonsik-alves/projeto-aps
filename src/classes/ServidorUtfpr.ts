@@ -1,4 +1,4 @@
-class ServidorUTFPR {
+export class ServidorUTFPR {
     
     // definição dos atributos
     private matriculaSiape: number;
