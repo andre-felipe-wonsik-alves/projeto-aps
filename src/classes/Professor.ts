@@ -1,19 +1,18 @@
-const ServidorUTFPR = require("./ServidorUtfpr")
+// const ServidorUTFPR = require("./ServidorUtfpr")
+import { ServidorUTFPR } from "./ServidorUtfpr"; // ! Trocar para um DAO
 
 export class Professor extends ServidorUTFPR {
-    // definição dos atributos
-    private idProfessor: number;
+  // método construtor
+  constructor(private idProfessor: number, daoServidor: ServidorUTFPR) {
+    super(
+      daoServidor.getMatriculaSiape(),
+      daoServidor.getNome(),
+      daoServidor.getCpf(),
+      daoServidor.getDataNascimento()
+    );
+  }
 
-    // método construtor
-    constructor(idProfessor: number) {
-        super(Servidor1.getMatriculaSiape(), Servidor1.getNome(), Servidor1.getCpf(), Servidor1.getDataNascimento());
-
-        this.idProfessor = idProfessor;
-    }
-
-    getIdProfessor(): number {
-        return this.idProfessor;
-    }
+  getIdProfessor(): number {
+    return this.idProfessor;
+  }
 }
-
-const Professor1 = new Professor(3678);
