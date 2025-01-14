@@ -5,15 +5,20 @@ export class Professor extends ServidorUTFPR {
     private idProfessor: number;
 
     // método construtor
-    constructor(idProfessor: number) {
-        super(Servidor1.getMatriculaSiape(), Servidor1.getNome(), Servidor1.getCpf(), Servidor1.getDataNascimento());
-
+    constructor(matriculaSiape: number, nome: string, cpf: string, dataNascimento: Date, idProfessor: number) {
+        super(matriculaSiape, nome, cpf, dataNascimento);
         this.idProfessor = idProfessor;
     }
 
     getIdProfessor(): number {
         return this.idProfessor;
     }
+
+    getServidorUTFPR() {
+        return `MatriculaSIAPE: ${super.getMatriculaSiape()}, CPF: ${super.getCpf()},
+        Nome: ${super.getNome()}, Data de Nascimento: ${super.getDataNascimento()}`;
+    }
 }
 
-const Professor1 = new Professor(3678);
+const Professor1 = new Professor(ServidorUTFPR.getMatriculaSiape(), ServidorUTFPR.getCpf(), ServidorUTFPR.getNome(), 
+ServidorUTFPR.getDataNascimento(), 3678);
