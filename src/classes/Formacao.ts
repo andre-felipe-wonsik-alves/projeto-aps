@@ -1,3 +1,6 @@
+const axios = require("axios").default;
+import pool from "../../database";
+
 export class Formacao {
   constructor(
     private id,
@@ -6,6 +9,7 @@ export class Formacao {
     private maxParticipantes
   ) {}
 
+  // ! PASSAR PARA O DAO URGENTEMENTE
   public getId(): number {
     return this.id;
   }
@@ -32,7 +36,46 @@ export class Formacao {
     this.maxParticipantes = maxParticipantes;
   }
 
-  existeFormacaoSei() {}
-  apagarFormacaoSei() {}
-  apagarFormacao() {}
+  public existeFormacaoSei(): string {
+    const resultado = axios
+      .get(`{url_api_sei}`)
+      .then(function (response) {
+        return { status: "200", data: response };
+      })
+      .catch(function (error) {
+        console.error(error);
+        return { status: "error", data: error };
+      });
+
+    return resultado;
+  }
+
+  public apagarFormacaoSei(body: string): string {
+    const resultado = axios
+      .post(`{url_api_sei}`, body)
+      .then(function (response) {
+        return { status: "200", data: response };
+      })
+      .catch(function (error) {
+        console.error(error);
+        return { status: "error", data: error };
+      });
+
+    return resultado;
+  }
+
+  public async apagarFormacao(req: Request, res: Response): Promise<string> {
+    const { id }: any = req.body;
+
+    try {
+      const query = `DELETE FROM Formacao WHERE Formacao.id == {id}`;
+
+      const result = await pool.query(query);
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
 }
