@@ -1,5 +1,5 @@
 export class ServidorUTFPR {
-    
+
     // definição dos atributos
     private matriculaSiape: number;
     private nome: string;
@@ -7,10 +7,10 @@ export class ServidorUTFPR {
     private dataNascimento: Date;
 
     // método construtor
-    constructor(matriculaSiape: number, nome: string, cpf: string, dataNascimento: Date){
+    constructor(matriculaSiape: number, cpf: string, nome: string, dataNascimento: Date){
         this.matriculaSiape = matriculaSiape;
-        this.nome = nome;
         this.cpf = cpf;
+        this.nome = nome;
         this.dataNascimento = dataNascimento;
     }
 
@@ -18,12 +18,12 @@ export class ServidorUTFPR {
         return this.matriculaSiape;
     }
 
-    getNome(): string{
-        return this.nome;
-    }
-
     getCpf(): string{
         return this.cpf;
+    }
+
+    getNome(): string{
+        return this.nome;
     }
 
     getDataNascimento(): Date{
@@ -32,4 +32,4 @@ export class ServidorUTFPR {
 }
 
 const data = new Date(2025,0,12);
-const Servidor1 = new ServidorUTFPR(6969, 'Bill', '6969696', data);
+var Servidor1 = new ServidorUTFPR(6969,'696969','Bill', data);
