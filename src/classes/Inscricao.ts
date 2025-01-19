@@ -1,4 +1,4 @@
-import { DaoFormacao } from "../DAOs/DaoFormacao";
+import { Formacao } from "./Formacao";
 import { Participante } from "./Participante";
 
 export class Inscricao {
@@ -12,13 +12,13 @@ export class Inscricao {
   //   ! rever o acesso de dados na classe
   constructor(
     cargaHorariaParticipante: number,
-    daoFormacao: DaoFormacao,
+    formacao: Formacao,
     daoParticipante: Participante
   ) {
     this.idParticipante = daoParticipante.getIdParticipante();
-    this.idFormacao = daoFormacao.getId();
+    this.idFormacao = formacao.getIdFormacao();
     this.cargaHorariaParticipante = cargaHorariaParticipante;
-    this.cargaHorariaFormacao = daoFormacao.getCargaHoraria();
+    this.cargaHorariaFormacao = formacao.getCargaHoraria();
   }
 
   getCargaHorariaParticipante(): number {

@@ -12,32 +12,6 @@ export class DaoFormacao extends Formacao {
     super(id, nome, cargaHoraria, maxParticipantes);
   }
 
-  public getId(): number {
-    return this.id;
-  }
-  public getNome(): string {
-    return this.nome;
-  }
-  public getCargaHoraria(): number {
-    return this.cargaHoraria;
-  }
-  public getMaxParticipantes(): number {
-    return this.maxParticipantes;
-  }
-
-  public setId(id: number) {
-    this.id = id;
-  }
-  public setNome(nome: string) {
-    this.nome = nome;
-  }
-  public setCargaHoraria(cargaHoraria: number) {
-    this.cargaHoraria = cargaHoraria;
-  }
-  public setMaxParticipantes(maxParticipantes: number) {
-    this.maxParticipantes = maxParticipantes;
-  }
-
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
   public existeFormacaoSei(): any {
