@@ -18,7 +18,7 @@ export class Inscricao {
     // método construtor
     constructor(idParticipante: number, idFormacao: number, cargaHorariaParticipante: number){
         this.idParticipante = P1.getIdParticipante();
-        this.idFormacao = F1.getIdFormacao();
+        this.idFormacao = F1.getId();
         this.cargaHorariaParticipante = cargaHorariaParticipante;
     }
 

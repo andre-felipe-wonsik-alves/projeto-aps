@@ -56,4 +56,30 @@ export class DaoFormacao extends Formacao {
       return err;
     }
   }
+
+  public async criarFormacaoSei(formacao: Formacao) {
+    const resultado = axios
+      .post(
+        `https://sei.utfpr.edu.br/sei/controlador.php/procedimento`, 
+        {
+          'id': formacao.getId(),
+          'nome': formacao.getNome(),
+          'cargaHoraria': formacao.getCargaHoraria(),
+          'maxParticipantes': formacao.getMaxParticipantes()
+        }
+      )
+      .then(function (response) {
+        return { status: "200", data: response };
+      })
+      .catch(function (error) {
+        console.error(error);
+        return { status: "error", data: error };
+      });
+
+    return resultado;
+  }
+
+  public async espelharFormacao(idFormacao: number, formacao: Formacao) {
+    
+  }
 }
