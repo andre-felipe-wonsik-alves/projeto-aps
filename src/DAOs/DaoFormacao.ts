@@ -16,7 +16,7 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
 
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
-  public existeFormacaoSei(): any {
+  public existeFormacaoSei(placeholer1, placeholder2): any {
     const resultado = axios
       .get(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento/`)
       .then(function (response) {
@@ -52,7 +52,7 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
 
       const result = await pool.query(query);
 
-      console.log(`Formação de id: ${id} foi deletada com sucesso!`);
+      console.log(`Formação de id: ${idFormacao} foi deletada com sucesso!`);
 
       return result;
     } catch (err) {
@@ -64,7 +64,7 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
   public async criarFormacaoSei(formacao: Formacao) {
     const resultado = axios
       .post(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento`, {
-        id: formacao.getId(),
+        id: formacao.getIdFormacao(),
         nome: formacao.getNome(),
         cargaHoraria: formacao.getCargaHoraria(),
         maxParticipantes: formacao.getMaxParticipantes(),
