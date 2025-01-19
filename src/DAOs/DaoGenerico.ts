@@ -1,5 +1,5 @@
 export class DAOGenerico<T> { //Define uma classe genérica que pode lidar com qualquer tipo T
-    private dados: T[] = []; //Array para armazenar os objetos 
+    protected dados: T[] = []; //Array para armazenar os objetos   //Quando um membro é declarado como protected, ele só pode ser acessado dentro da própria classe e em suas classes filhas (herança).
     private contadorId: number = 1; //Um contador para gerar IDs únicos para os objetos
   
     // Método para criar uma nova entidade

@@ -2,7 +2,7 @@ import { Formacao } from "../classes/Formacao";
 import pool from "../../database";
 import axios from "axios";
 
-export class DaoFormacao extends Formacao {
+export class DAOFormacao extends Formacao {
   constructor(
     id: number,
     nome: string,
