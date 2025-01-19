@@ -1,16 +1,18 @@
 import { Formacao } from "../classes/Formacao";
 import pool from "../../database";
 import axios from "axios";
+import { DAOGenerico } from "./DAOGenerico";
 
-export class DAOFormacao extends Formacao {
-  constructor(
-    id: number,
-    nome: string,
-    cargaHoraria: number,
-    maxParticipantes: number
-  ) {
-    super(id, nome, cargaHoraria, maxParticipantes);
-  }
+export class DAOFormacao extends DAOGenerico<Formacao> {
+  // constructor(
+  //   id: number,
+  //   nome: string,
+  //   cargaHoraria: number,
+  //   maxParticipantes: number
+  // ) {
+  //   // super(id, nome, cargaHoraria, maxParticipantes);
+  //   super();
+  // }
 
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
@@ -80,6 +82,6 @@ export class DAOFormacao extends Formacao {
   }
 
   public async espelharFormacao(idFormacao: number, formacao: Formacao) {
-    
+    this.encontrarPorId(idFormacao) ? this.atualizar(idFormacao, formacao) : this.criar(formacao);
   }
 }
