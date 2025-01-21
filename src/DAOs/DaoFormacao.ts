@@ -16,7 +16,7 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
 
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
-  public existeFormacaoSei(placeholer1, placeholder2): any {
+  public retorneFormacoesSei(): any {
     const resultado = axios
       .get(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento/`)
       .then(function (response) {

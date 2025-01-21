@@ -1,4 +1,5 @@
 import { DaoFormacao } from "../../DAOs/DaoFormacao";
+import { DvoFormacao } from "../../DVOs/DvoFormacao";
 
 export function desatrelarFormacao(
   nomeFormacao: string,
@@ -8,14 +9,16 @@ export function desatrelarFormacao(
   // * Vindo com ele, temos: nomeFormacao e nomeLecionador.
   try {
     const daoFormacao = new DaoFormacao();
-    const respostaSei = daoFormacao.existeFormacaoSei(
+    const dvoFormacao = new DvoFormacao(daoFormacao);
+
+    const respostaSei = dvoFormacao.existeFormacaoSei(
       nomeFormacao,
       nomeLecionador
     );
 
-    if (respostaSei.status) {
-      daoFormacao.apagarFormacaoSei(respostaSei.id);
-      daoFormacao.apagarFormacao(respostaSei.id);
+    if (respostaSei) {
+      daoFormacao.apagarFormacaoSei(respostaSei.data.id);
+      daoFormacao.apagarFormacao(respostaSei.data.id);
       return true;
     }
 
