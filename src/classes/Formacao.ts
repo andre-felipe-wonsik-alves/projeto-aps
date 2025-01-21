@@ -1,17 +1,13 @@
 export class Formacao {
   constructor(
-    protected id: number,
+    protected idFormacao: number,
     protected nome: string,
     protected cargaHoraria: number,
     protected maxParticipantes: number
   ) {}
 
-  // * Resolvi deixar os métodos acessores dentro da própria classe, pois:
-  // * Flexibilidade, reuso e simplicidade
-  // * Não quebra a regra da responsabilidade única!
-
-  public getId(): number {
-    return this.id;
+  public getIdFormacao(): number {
+    return this.idFormacao;
   }
   public getNome(): string {
     return this.nome;
@@ -23,8 +19,8 @@ export class Formacao {
     return this.maxParticipantes;
   }
 
-  public setId(id: number) {
-    this.id = id;
+  public setId(idFormacao: number) {
+    this.idFormacao = idFormacao;
   }
   public setNome(nome: string) {
     this.nome = nome;
