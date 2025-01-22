@@ -9,17 +9,17 @@
 
 ### Linux
 
-- Primeiramente, tenha em mente qual é o **seu gerenciador de pacotes**. No meu caso, meu sistema operacional é Fedora Linux, portanto, trabalho com `dnf`. Dessa maneira, escreva no terminal: `sudo dnf install node`
+- Primeiramente, tenha em mente qual é o **seu gerenciador de pacotes**. No meu caso, o sistema operacional é Fedora Linux, portanto, trabalho com `dnf`. Dessa maneira, escreva no terminal: `sudo dnf install node`
 - Caso esteja em outro sistema operacional Linux, use:
-- 1. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash`
-- 2. `nvm install`
+  1. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash`
+  2. `nvm install`
 
 ## Setup
 
 ### Download dos pacotes
 
 - Execute o comando `npm install` para baixar as dependências do projeto na sua máquina;
-- - Caso queira verificá-las antes de fazer o download, olhe no arquivo `package.json`.
+  - Caso queira verificá-las antes de fazer o download, olhe no arquivo `package.json`.
 
 ### Como rodar o projeto
 
