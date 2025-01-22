@@ -1,8 +1,8 @@
-import { DAOGenerico } from "./DaoGenerico"; // Importando o DAOGenérico
+import { DaoGenerico } from "./DaoGenerico"; // Importando o DAOGenérico
 import { Participante } from "../classes/Participante"; // Importando a classe Participante
 
 // Criando a classe DAOParticipante que usa o DAOGenerico com Participante
-export class DAOParticipante extends DAOGenerico<Participante> {
+export class DAOParticipante extends DaoGenerico<Participante> {
   // Método específico para encontrar o Participante pelo idParticipante
   findByIdParticipante(idParticipante: number): Participante | null {
     return (

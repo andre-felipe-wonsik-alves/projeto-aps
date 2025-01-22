@@ -1,7 +1,11 @@
 import { DaoFormacao } from "../DAOs/DaoFormacao";
 
 export class DvoFormacao {
-  constructor(protected daoFormacao: DaoFormacao) {}
+  private daoFormacao: DaoFormacao;
+
+  constructor(daoFormacao: DaoFormacao) {
+    this.daoFormacao = daoFormacao;
+  }
   public existeFormacaoSei(nomeFormacao, nomeLecionador): any {
     const formacoes = this.daoFormacao.retorneFormacoesSei();
 
