@@ -4,16 +4,6 @@ import axios from "axios";
 import { DaoGenerico } from "./DaoGenerico";
 
 export class DaoFormacao extends DaoGenerico<Formacao> {
-  // constructor(
-  //   id: number,
-  //   nome: string,
-  //   cargaHoraria: number,
-  //   maxParticipantes: number
-  // ) {
-  //   // super(id, nome, cargaHoraria, maxParticipantes);
-  //   super();
-  // }
-
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
   public retorneFormacoesSei(): any {

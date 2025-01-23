@@ -1,30 +1,23 @@
+import { Formacao } from "../../classes/Formacao";
 import { DaoFormacao } from "../../DAOs/DaoFormacao";
 import { DvoFormacao } from "../../DVOs/DvoFormacao";
+import { ManagerFormacao } from "../../managers/managerFormacao";
 
-export function desatrelarFormacao(
-  nomeFormacao: string,
-  nomeLecionador: string
-): boolean {
-  // * << Pedagogo dispara o gatilho que apaga uma formação do sistema >>
-  // * Vindo com ele, temos: nomeFormacao e nomeLecionador.
+export async function main() {
+  const daoFormacao = new DaoFormacao();
+  const dvoFormacao = new DvoFormacao(daoFormacao);
+  const formacaoManager = new ManagerFormacao(daoFormacao, dvoFormacao);
+
+  const novaFormacao = new Formacao(1, "andrezao", 12, 10);
+
   try {
-    const daoFormacao = new DaoFormacao();
-    const dvoFormacao = new DvoFormacao(daoFormacao);
-
-    const respostaSei = dvoFormacao.existeFormacaoSei(
-      nomeFormacao,
-      nomeLecionador
+    const retorno = await formacaoManager.desatrelarFormacao(
+      novaFormacao.getNome(),
+      "felipe"
     );
 
-    if (respostaSei) {
-      daoFormacao.apagarFormacaoSei(respostaSei.data.id);
-      daoFormacao.apagarFormacao(respostaSei.data.id);
-      return true;
-    }
-
-    return false;
+    console.log(retorno);
   } catch (error) {
-    console.error(error);
-    return false;
+    console.error("Erro:", error.message);
   }
 }
