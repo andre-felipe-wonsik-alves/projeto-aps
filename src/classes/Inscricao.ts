@@ -17,8 +17,9 @@ export class Inscricao {
     //return {participante: this.participante, formacao: this.formacao};
   //}
 
-  public getIdParticipanteFormacao(): {idParticipante: number, idFormacao: number} {   //usar as {} cria um objeto!
-    return { idParticipante: this.participante.getIdParticipante(), idFormacao: this.formacao.getIdFormacao()};
+  public getIdParticipanteFormacao(): {idParticipante: number, idFormacao: number} {   //usar as {} cria um objeto! 
+    return {idParticipante: this.participante.getIdParticipante(), idFormacao: this.formacao.getIdFormacao()};
+    //chaves primárias!
   }
 
   public setCargaHorariaParticipante(cargaHorariaParticipante: number) {
