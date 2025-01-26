@@ -3,6 +3,7 @@ import { Participante } from '../classes/Participante'; // Importando a classe P
 
 // Criando a classe DAOParticipante que usa o DAOGenerico com Participante
 export class DaoParticipante extends DaoGenerico<Participante> {
+  
   // Método específico para encontrar o Participante pelo idParticipante
   public encontrarPorIdParticipante(idParticipante: number): Participante | null {
     return (this.dados.find((item) => item.getIdParticipante() === idParticipante) || null);
