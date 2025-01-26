@@ -60,7 +60,25 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
         maxParticipantes: formacao.getMaxParticipantes(),
       })
       .then(function (response) {
-        return { status: "200", data: response };
+        return { status: "201", data: response };
+      })
+      .catch(function (error) {
+        console.error(error);
+        return { status: null, data: error };
+      });
+
+    return resultado;
+  }
+
+  public async atualizarFormacaoSei(formacao: Formacao) {
+    const resultado = axios
+      .put(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento/${formacao.getIdFormacao}`, {
+        nome: formacao.getNome(),
+        cargaHoraria: formacao.getCargaHoraria(),
+        maxParticipantes: formacao.getMaxParticipantes(),
+      })
+      .then(function (response) {
+        return { status: "201", data: response };
       })
       .catch(function (error) {
         console.error(error);
@@ -71,8 +89,6 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
   }
 
   public async espelharFormacao(idFormacao: number, formacao: Formacao) {
-    this.encontrarPorId(idFormacao)
-      ? this.atualizar(idFormacao, formacao)
-      : this.criar(formacao);
+    
   }
 }

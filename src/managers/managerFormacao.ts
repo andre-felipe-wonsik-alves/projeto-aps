@@ -1,5 +1,6 @@
 import { DaoFormacao } from "../DAOs/DaoFormacao";
 import { DvoFormacao } from "../DVOs/DvoFormacao";
+import { Formacao } from "../classes/Formacao";
 
 export class ManagerFormacao {
   private daoFormacao: DaoFormacao;
@@ -31,4 +32,25 @@ export class ManagerFormacao {
       return false;
     }
   }
+
+  espelharFormacao(formacao: Formacao, nomeLecionador: string): void{
+    try {
+      const respostaSei = this.dvoFormacao.existeFormacaoSei(
+        formacao.getNome,
+        nomeLecionador
+      );
+
+      if (respostaSei) {
+        this.daoFormacao.atualizarFormacaoSei(respostaSei.data);
+        this.daoFormacao.atualizar(respostaSei.data.id, respostaSei.data);
+      }
+      else{
+        this.daoFormacao.criarFormacaoSei(respostaSei.data);
+        this.daoFormacao.criar(respostaSei.data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
+
