@@ -1,35 +1,45 @@
 export class ServidorUTFPR {
-
-    // definição dos atributos
-    private matriculaSiape: number;
-    private nome: string;
-    private cpf: string;
-    private dataNascimento: Date;
-
     // método construtor
-    constructor(matriculaSiape: number, cpf: string, nome: string, dataNascimento: Date){
-        this.matriculaSiape = matriculaSiape;
-        this.cpf = cpf;
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-    }
+    constructor(
+        protected matriculaSiape: number, 
+        protected cpf: string, 
+        protected nome: string, 
+        protected dataNascimento: Date
+    ) {}
 
-    getMatriculaSiape(): number{
+    public getMatriculaSiape(): number {
         return this.matriculaSiape;
     }
 
-    getCpf(): string{
+    public getCpf(): string {
         return this.cpf;
     }
 
-    getNome(): string{
+    public getNome(): string {
         return this.nome;
     }
 
-    getDataNascimento(): Date{
+    public getDataNascimento(): Date {
         return this.dataNascimento;
     }
+
+    public setMatriculaSiape(matriculaSiape: number) {
+        this.matriculaSiape = matriculaSiape;
+    }
+
+    public setCpf(cpf: string) {
+        this.cpf = cpf;
+    }
+
+    public setNome(nome: string) {
+        this.nome = nome;
+    }
+
+    public setDataNascimento(dataNascimento: Date) {
+        this.dataNascimento = dataNascimento;
+    }
+
 }
 
-const data = new Date(2025,0,12);
-var Servidor1 = new ServidorUTFPR(6969,'696969','Bill', data);
+const data = new Date(2025, 0, 12);
+var Servidor1 = new ServidorUTFPR(6969, '696969', 'Bill', data);
