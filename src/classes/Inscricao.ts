@@ -46,3 +46,6 @@ export class Inscricao {
     this.formacao = new Formacao(idFormacao, this.formacao.getNome(), this.formacao.getCargaHoraria(), this.formacao.getMaxParticipantes());
   }
 }
+
+
+console.log("PINTO");
