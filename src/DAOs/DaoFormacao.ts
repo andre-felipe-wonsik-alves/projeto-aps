@@ -89,6 +89,6 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
   }
 
   public async espelharFormacao(idFormacao: number, formacao: Formacao) {
-    
+      console.log("vsf marvel");
   }
 }
