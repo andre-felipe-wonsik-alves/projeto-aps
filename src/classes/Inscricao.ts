@@ -13,6 +13,10 @@ export class Inscricao {
     return this.cargaHorariaParticipante;
   }
 
+  //public getParticipanteFormacao(): {participante: Participante; formacao: Formacao} { //seria puxar os 2, com todas suas informações
+  //return {participante: this.participante, formacao: this.formacao};
+  //}
+
   public getIdParticipanteFormacao(): {
     idParticipante: number;
     idFormacao: number;
@@ -22,6 +26,20 @@ export class Inscricao {
       idParticipante: this.participante.getIdParticipante(),
       idFormacao: this.formacao.getIdFormacao(),
     };
+    //chaves primárias!
+  }
+
+  public getInscricao(idParticipante: number, idFormacao: number): any {
+    if (
+      idParticipante === this.getIdParticipanteFormacao().idParticipante &&
+      idFormacao === this.getIdParticipanteFormacao().idFormacao
+    ) {
+      return {
+        idParticipanteFormacao: this.getIdParticipanteFormacao(),
+        cargaHorariaParticipante: this.cargaHorariaParticipante,
+      };
+    }
+    return null;
   }
 
   public setCargaHorariaParticipante(cargaHorariaParticipante: number) {
