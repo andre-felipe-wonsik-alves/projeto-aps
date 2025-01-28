@@ -2,7 +2,7 @@ import { DaoFormacao } from "../DAOs/DaoFormacao";
 import { DvoFormacao } from "../DVOs/DvoFormacao";
 import { Formacao } from "../classes/Formacao";
 
-export class ManagerFormacao {
+export class FormacaoManager {
   private daoFormacao: DaoFormacao;
   private dvoFormacao: DvoFormacao;
 

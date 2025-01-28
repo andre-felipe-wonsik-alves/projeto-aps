@@ -87,8 +87,4 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
 
     return resultado;
   }
-
-  public async espelharFormacao(idFormacao: number, formacao: Formacao) {
-    
-  }
 }
