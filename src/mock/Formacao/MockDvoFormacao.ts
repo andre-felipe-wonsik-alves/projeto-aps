@@ -1,13 +1,13 @@
-import { DaoFormacao } from "../DAOs/DaoFormacao";
+import { MockDaoFormacao } from "./MockDaoFormacao";
 
-export class DvoFormacao {
-  private daoFormacao: DaoFormacao;
+export class MockDvoFormacao {
+  private mockDaoFormacao: MockDaoFormacao;
 
-  constructor(daoFormacao: DaoFormacao) {
-    this.daoFormacao = daoFormacao;
+  constructor(mockDaoFormacao: MockDaoFormacao) {
+    this.mockDaoFormacao = mockDaoFormacao;
   }
   public existeFormacaoSei(nomeFormacao, nomeLecionador): any {
-    const formacoes = this.daoFormacao.retorneFormacoesSei();
+    const formacoes = this.mockDaoFormacao.retorneFormacoesSei();
 
     if (!formacoes.status) return { exists: "error" }; // ? Caso haja erro na requisição
 

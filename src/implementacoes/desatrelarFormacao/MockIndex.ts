@@ -3,6 +3,8 @@ import { DvoFormacao } from "../../DVOs/DvoFormacao";
 import { DaoManager } from "../../managers/DaoManager";
 import { FormacaoManager } from "../../managers/FormacaoManager";
 
+import { MockFormacaoManager } from "../../mock/Formacao/MockFormacaoManager";
+
 export async function main() {
   const daoManager = new DaoManager();
   const daoFormacao = daoManager.getDaoFormacao();
