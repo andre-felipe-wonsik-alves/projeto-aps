@@ -1,5 +1,5 @@
 // const lib = require("./src/imprimirCertificado/index.ts");
-import { main } from "./src/implementacoes/desatrelarFormacao/index";
+import { main } from "./src/implementacoes/desatrelarFormacao/MockIndex";
 import dotenv from "dotenv";
 import readline from "readline";
 
@@ -16,12 +16,12 @@ console.log(
   "Escolha um caso de uso há ser executado:\n1 - Imprimir certiicado\n2 - Validar carga horária\n3 - Desatrelar formação\n4 - Espelhar formação"
 );
 
-const rl = readline.createInterface({
+const input = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-rl.question("\n-> ", function (resposta) {
+input.question("\n-> ", function (resposta) {
   switch (resposta) {
     case "1":
       break;
@@ -31,5 +31,5 @@ rl.question("\n-> ", function (resposta) {
       break;
   }
 
-  rl.close();
+  input.close();
 });

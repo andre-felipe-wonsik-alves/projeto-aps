@@ -1,15 +1,15 @@
 import { Formacao } from "../../classes/Formacao";
-import { DvoFormacao } from "../../DVOs/DvoFormacao";
-import { DaoManager } from "../../managers/DaoManager";
-import { FormacaoManager } from "../../managers/FormacaoManager";
-
+import { MockDaoFormacao } from "../../mock/Formacao/MockDaoFormacao";
+import { MockDvoFormacao } from "../../mock/Formacao/MockDvoFormacao";
 import { MockFormacaoManager } from "../../mock/Formacao/MockFormacaoManager";
 
 export async function main() {
-  const daoManager = new DaoManager();
-  const daoFormacao = daoManager.getDaoFormacao();
-  const dvoFormacao = new DvoFormacao(daoFormacao);
-  const formacaoManager = new FormacaoManager(daoFormacao, dvoFormacao);
+  const mockDaoFormacao = new MockDaoFormacao();
+  const mockDvoFormacao = new MockDvoFormacao(mockDaoFormacao);
+  const mockFormacaoManager = new MockFormacaoManager(
+    mockDaoFormacao,
+    mockDvoFormacao
+  );
 
   const novaFormacao = new Formacao(
     1,
@@ -19,7 +19,7 @@ export async function main() {
   );
 
   try {
-    const retorno = formacaoManager.desatrelarFormacao(
+    const retorno = mockFormacaoManager.desatrelarFormacao(
       novaFormacao.getNome(),
       "André Felipe Wonsik Alves"
     );
