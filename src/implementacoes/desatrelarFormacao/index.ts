@@ -9,12 +9,17 @@ export async function main() {
   const dvoFormacao = new DvoFormacao(daoFormacao);
   const formacaoManager = new FormacaoManager(daoFormacao, dvoFormacao);
 
-  const novaFormacao = new Formacao(1, "andrezao", 12, 10);
+  const novaFormacao = new Formacao(
+    1,
+    "Programação Orientada à Objetos: um estudo de caso",
+    12,
+    10
+  );
 
   try {
-    const retorno = await formacaoManager.desatrelarFormacao(
+    const retorno = formacaoManager.desatrelarFormacao(
       novaFormacao.getNome(),
-      "felipe"
+      "André Felipe Wonsik Alves"
     );
 
     console.log(retorno);
