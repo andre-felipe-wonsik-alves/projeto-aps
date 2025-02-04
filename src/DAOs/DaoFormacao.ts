@@ -87,4 +87,34 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
 
     return resultado;
   }
+
+  public async atualizarFormacao(formacao: Formacao) {
+    try {
+      const query = `UPDATE Formacao SET nome = ${formacao.getNome()}, cargaHoraria = ${formacao.getCargaHoraria()}, maxParticipantes = ${formacao.getMaxParticipantes()} WHERE idFormacao = ${formacao.getIdFormacao()};`;
+
+      const result = await pool.query(query);
+
+      console.log(`Formação de id: ${formacao.getIdFormacao()} foi atualizada com sucesso!`);
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+
+  public async criarFormacao(formacao: Formacao) {
+    try {
+      const query = `INSERT INTO Formacao (idFormacao, nome, cargaHoraria, maxParticipantes) VALUES (${formacao.getIdFormacao()}, ${formacao.getNome()}, ${formacao.getCargaHoraria()}, ${formacao.getMaxParticipantes()});`;
+
+      const result = await pool.query(query);
+
+      console.log(`Formação de id: ${formacao.getIdFormacao()} foi criada com sucesso!`);
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
 }
