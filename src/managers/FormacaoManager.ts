@@ -42,11 +42,11 @@ export class FormacaoManager {
 
       if (respostaSei) {
         this.daoFormacao.atualizarFormacaoSei(respostaSei.data);
-        this.daoFormacao.atualizar(respostaSei.data.id, respostaSei.data);
+        this.daoFormacao.atualizarFormacao(respostaSei.data);
       }
       else{
         this.daoFormacao.criarFormacaoSei(respostaSei.data);
-        this.daoFormacao.criar(respostaSei.data);
+        this.daoFormacao.criarFormacao(respostaSei.data);
       }
     } catch (error) {
       console.error(error);
