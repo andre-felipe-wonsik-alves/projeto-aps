@@ -4,16 +4,6 @@ import axios from "axios";
 import { DaoGenerico } from "./DaoGenerico";
 
 export class DaoFormacao extends DaoGenerico<Formacao> {
-  // constructor(
-  //   id: number,
-  //   nome: string,
-  //   cargaHoraria: number,
-  //   maxParticipantes: number
-  // ) {
-  //   // super(id, nome, cargaHoraria, maxParticipantes);
-  //   super();
-  // }
-
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
   public retorneFormacoesSei(): any {
@@ -70,7 +60,7 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
         maxParticipantes: formacao.getMaxParticipantes(),
       })
       .then(function (response) {
-        return { status: "200", data: response };
+        return { status: "201", data: response };
       })
       .catch(function (error) {
         console.error(error);
@@ -80,9 +70,51 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
     return resultado;
   }
 
-  public async espelharFormacao(idFormacao: number, formacao: Formacao) {
-    this.encontrarPorId(idFormacao)
-      ? this.atualizar(idFormacao, formacao)
-      : this.criar(formacao);
+  public async atualizarFormacaoSei(formacao: Formacao) {
+    const resultado = axios
+      .put(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento/${formacao.getIdFormacao}`, {
+        nome: formacao.getNome(),
+        cargaHoraria: formacao.getCargaHoraria(),
+        maxParticipantes: formacao.getMaxParticipantes(),
+      })
+      .then(function (response) {
+        return { status: "201", data: response };
+      })
+      .catch(function (error) {
+        console.error(error);
+        return { status: null, data: error };
+      });
+
+    return resultado;
+  }
+
+  public async atualizarFormacao(formacao: Formacao) {
+    try {
+      const query = `UPDATE Formacao SET nome = ${formacao.getNome()}, cargaHoraria = ${formacao.getCargaHoraria()}, maxParticipantes = ${formacao.getMaxParticipantes()} WHERE idFormacao = ${formacao.getIdFormacao()};`;
+
+      const result = await pool.query(query);
+
+      console.log(`Formação de id: ${formacao.getIdFormacao()} foi atualizada com sucesso!`);
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+
+  public async criarFormacao(formacao: Formacao) {
+    try {
+      const query = `INSERT INTO Formacao (idFormacao, nome, cargaHoraria, maxParticipantes) VALUES (${formacao.getIdFormacao()}, ${formacao.getNome()}, ${formacao.getCargaHoraria()}, ${formacao.getMaxParticipantes()});`;
+
+      const result = await pool.query(query);
+
+      console.log(`Formação de id: ${formacao.getIdFormacao()} foi criada com sucesso!`);
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
   }
 }

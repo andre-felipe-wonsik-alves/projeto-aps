@@ -1,28 +1,23 @@
 import { Formacao } from "../../classes/Formacao";
-import { DvoFormacao } from "../../DVOs/DvoFormacao";
 import { DaoManager } from "../../managers/DaoManager";
+import { DvoFormacao } from "../../DVOs/DvoFormacao";
 import { FormacaoManager } from "../../managers/FormacaoManager";
 
 export async function main() {
-  const daoManager = new DaoManager();
-  const daoFormacao = daoManager.getDaoFormacao();
+  const man = new DaoManager;
+  const daoFormacao =  man.getDaoFormacao();
   const dvoFormacao = new DvoFormacao(daoFormacao);
   const formacaoManager = new FormacaoManager(daoFormacao, dvoFormacao);
 
-  const novaFormacao = new Formacao(
-    1,
-    "Programação Orientada à Objetos: um estudo de caso",
-    12,
-    10
-  );
+  const novaFormacao = new Formacao(1, "eberzao", 100, 2);
 
   try {
-    const retorno = formacaoManager.desatrelarFormacao(
-      novaFormacao.getNome(),
-      "André Felipe Wonsik Alves"
+    const retorno = await formacaoManager.espelharFormacao(
+        novaFormacao,
+        "Sigma"
     );
 
-    console.log(retorno);
+    
   } catch (error) {
     console.error("Erro:", error.message);
   }
