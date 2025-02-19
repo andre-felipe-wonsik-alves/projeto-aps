@@ -1,11 +1,8 @@
 import { Formacao } from "../classes/Formacao";
 import pool from "../../database";
 import axios from "axios";
-import { DaoGenerico } from "./DaoGenerico";
 
-export class DaoFormacao extends DaoGenerico<Formacao> {
-  // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
-  // ! Abstrair na próxima mudança.
+export class DaoFormacao {
   public retorneFormacoesSei(): any {
     const resultado = axios
       .get(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento/`)
@@ -88,7 +85,7 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
     return resultado;
   }
 
-  public async atualizarFormacao(formacao: Formacao) {
+  public async atualizar(formacao: Formacao) {
     try {
       const query = `UPDATE Formacao SET nome = ${formacao.getNome()}, cargaHoraria = ${formacao.getCargaHoraria()}, maxParticipantes = ${formacao.getMaxParticipantes()} WHERE idFormacao = ${formacao.getIdFormacao()};`;
 

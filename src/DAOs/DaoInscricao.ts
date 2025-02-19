@@ -8,6 +8,8 @@ export class DaoInscricao extends DaoGenerico<Inscricao> {
     protected inscricao: Inscricao;
     protected formacao: Formacao;
 
+    // ! levar esses métodos pro manager
+
     public consultarInscricao(idParticipante: number, idFormacao: number): any {
         const inscricoes = this.inscricao.getInscricao(idParticipante, idFormacao);
         return inscricoes;
@@ -19,6 +21,7 @@ export class DaoInscricao extends DaoGenerico<Inscricao> {
     // *    const result = await pool.query(query);
     // *    return result;
     // *  }
+
 
     public validarCargaHoraria(cargaHorariaParticipante: number): string {
         cargaHorariaParticipante = this.inscricao.getCargaHorariaParticipante();
