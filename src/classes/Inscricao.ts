@@ -50,15 +50,7 @@ export class Inscricao {
     idParticipante: number,
     idFormacao: number
   ): void {
-    this.participante = new Participante(
-      this.participante.getMatriculaSiape(),
-      this.participante.getCpf(),
-      this.participante.getNome(),
-      this.participante.getDataNascimento(),
-      this.participante.getIdProfessor(),
-      idParticipante
-    );
-
+    this.participante.setIdParticipante(idParticipante);
     this.formacao = new Formacao(
       idFormacao,
       this.formacao.getNome(),
