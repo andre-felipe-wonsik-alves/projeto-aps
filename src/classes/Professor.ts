@@ -1,4 +1,4 @@
-import { ServidorUTFPR } from "./ServidorUtfpr"; // ! Trocar para um DAO
+import { ServidorUTFPR } from "./ServidorUtfpr"; 
 
 export class Professor extends ServidorUTFPR {
   // método construtor
