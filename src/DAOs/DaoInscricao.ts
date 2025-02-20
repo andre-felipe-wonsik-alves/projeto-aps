@@ -7,7 +7,7 @@ export class DaoInscricao {
     protected inscricao: Inscricao;
     protected formacao: Formacao;
 
-    public async ler(idParticipante: number, idFormacao: number): Promise<Inscricao | null> {
+    public async lerIncricao(idParticipante: number, idFormacao: number): Promise<Inscricao | null> {
         try {
             const query = `SELECT * FROM Inscricao WHERE idParticipante = $1 AND idFormacao = $2`;
             const values = [idParticipante, idFormacao];
