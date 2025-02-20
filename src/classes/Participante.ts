@@ -1,27 +1,11 @@
-import { Professor } from "./Professor";
-
-export class Participante extends Professor {
-
-  constructor(
-    protected matriculaSiape: number,
-    protected cpf: string,
-    protected nome: string,
-    protected dataNascimento: Date,
-    protected idProfessor: number,
-    protected idParticipante: number
-  ) {
-    super(matriculaSiape, cpf, nome, dataNascimento, idProfessor);
-  }
+export class Participante {
+  constructor(protected idParticipante: number) {}
 
   public getIdParticipante(): number {
     return this.idParticipante;
   }
 
-  //public getProfessorId() : number{
-    //return super.getIdProfessor();
-  //}
-
-  public setIdParticipante(idParticipante: number) {
+  public setIdParticipante(idParticipante: number): void {
     this.idParticipante = idParticipante;
   }
 }

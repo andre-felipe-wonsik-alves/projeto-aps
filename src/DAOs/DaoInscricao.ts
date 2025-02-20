@@ -1,10 +1,9 @@
-import { DaoGenerico } from "./DaoGenerico"; // Importando o DAOGenérico
 import { Inscricao } from "../classes/Inscricao"; // Importando a classe Inscricao
 import { Formacao } from "../classes/Formacao";
 import pool from "../../database";
 
 // Criando a classe DAOParticipante que usa o DAOGenerico com Inscricao
-export class DaoInscricao extends DaoGenerico<Inscricao> {
+export class DaoInscricao{
     protected inscricao: Inscricao;
     protected formacao: Formacao;
 
