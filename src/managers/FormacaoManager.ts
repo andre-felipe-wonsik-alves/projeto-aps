@@ -22,7 +22,7 @@ export class FormacaoManager {
 
       if (respostaSei) {
         this.daoFormacao.apagarFormacaoSei(respostaSei.data.id);
-        this.daoFormacao.apagarFormacao(respostaSei.data.id);
+        this.daoFormacao.apagar(respostaSei.data.id);
         return true;
       }
 
@@ -42,11 +42,11 @@ export class FormacaoManager {
 
       if (respostaSei) {
         this.daoFormacao.atualizarFormacaoSei(respostaSei.data);
-        this.daoFormacao.atualizarFormacao(respostaSei.data);
+        this.daoFormacao.atualizar(respostaSei.data);
       }
       else{
         this.daoFormacao.criarFormacaoSei(respostaSei.data);
-        this.daoFormacao.criarFormacao(respostaSei.data);
+        this.daoFormacao.criar(respostaSei.data);
       }
     } catch (error) {
       console.error(error);

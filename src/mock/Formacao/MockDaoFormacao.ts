@@ -27,10 +27,47 @@ export class MockDaoFormacao {
     return resultado;
   }
 
-  public async apagarFormacao(idFormacao): Promise<any> {
+  public atualizarFormacaoSei(idFormacao): any {
+    const resultado = {
+      status: "200",
+      data: {
+        message: `Formação de id ${idFormacao} apagada do SEI com sucesso!`,
+      },
+    };
+
+    console.log(resultado.data.message);
+
+    return resultado;
+  }
+
+  public criarFormacaoSei(idFormacao): any {
+    const resultado = {
+      status: "200",
+      data: {
+        message: `Formação de id ${idFormacao} criada do SEI com sucesso!`,
+      },
+    };
+
+    console.log(resultado.data.message);
+
+    return resultado;
+  }
+
+  public async apagar(idFormacao): Promise<any> {
     const resultado = {
       status: "200",
       message: `Formação de id ${idFormacao} apagada do sistema com sucesso!`,
+    };
+
+    console.log(resultado.message);
+
+    return resultado;
+  }
+
+  public async atualizar(formacao): Promise<any> {    
+    const resultado = {
+      status: "200",
+      message: `Formação de id ${formacao.id} atualizada com sucesso!`,
     };
 
     console.log(resultado.message);
