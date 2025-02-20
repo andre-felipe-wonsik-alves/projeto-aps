@@ -20,15 +20,4 @@ export class DaoInscricao extends DaoGenerico<Inscricao> {
     // *    return result;
     // *  }
 
-    public validarCargaHoraria(cargaHorariaParticipante: number): string {
-        cargaHorariaParticipante = this.inscricao.getCargaHorariaParticipante();
-        let validacao: string;
-        if (cargaHorariaParticipante === this.formacao.getCargaHoraria()) {
-            validacao = "Carga Horária Validada";
-        } else {
-            validacao = "Carga Horária Não Validada";
-        }
-
-        return validacao;
-    }
 }
