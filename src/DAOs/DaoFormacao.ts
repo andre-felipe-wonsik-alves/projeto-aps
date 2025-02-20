@@ -114,4 +114,22 @@ export class DaoFormacao {
       return err;
     }
   }
+
+  retrieve(idFormacao: number): Formacao { //!Erickao ta testando o retrive aqui
+    //!E o professor comentou em deixar os exemplos prontos nos DAO ai deixei ai pra testar!
+    // Simula a recuperação de uma formação do banco de dados
+    // Aqui você pode implementar a lógica real de acesso ao banco de dados
+    // Exemplo de dados simulados:
+    const formacoes = [
+      new Formacao(1, "Curso de TypeScript", 30, 40),
+      new Formacao(2, "Curso de JavaScript", 50, 60),
+    ];
+
+    const formacaoEncontrada = formacoes.find(f => f.getIdFormacao() === idFormacao);
+    if (!formacaoEncontrada) {
+      throw new Error("Formação não encontrada");
+    }
+
+    return formacaoEncontrada;
+  }
 }
