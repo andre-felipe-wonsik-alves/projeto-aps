@@ -1,9 +1,8 @@
 import { Formacao } from "../classes/Formacao";
 import pool from "../../database";
 import axios from "axios";
-import { DaoGenerico } from "./DaoGenerico";
 
-export class DaoFormacao extends DaoGenerico<Formacao> {
+export class DaoFormacao{
   // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
   // ! Abstrair na próxima mudança.
   public retorneFormacoesSei(): any {
@@ -118,21 +117,28 @@ export class DaoFormacao extends DaoGenerico<Formacao> {
     }
   }
 
-  retrieve(idFormacao: number): Formacao { //!Erickao ta testando o retrive aqui
-    //!E o professor comentou em deixar os exemplos prontos nos DAO ai deixei ai pra testar!
-    // Simula a recuperação de uma formação do banco de dados
-    // Aqui você pode implementar a lógica real de acesso ao banco de dados
-    // Exemplo de dados simulados:
-    const formacoes = [
-      new Formacao(1, "Curso de TypeScript", 30, 40),
-      new Formacao(2, "Curso de JavaScript", 50, 60),
-    ];
+  public async retrieve(idFormacao: number): Promise<Formacao> {
+    try {
+      const query = `SELECT * FROM Formacao WHERE idFormacao = $1`;
+      const values = [idFormacao];
 
-    const formacaoEncontrada = formacoes.find(f => f.getIdFormacao() === idFormacao);
-    if (!formacaoEncontrada) {
-      throw new Error("Formação não encontrada");
+      const result = await pool.query(query, values);
+
+      if (result.rows.length === 0) {
+        throw new Error("Formação não encontrada");
+      }
+
+      const row = result.rows[0];
+
+      return new Formacao(
+        row.idFormacao,
+        row.nome,
+        row.cargaHoraria,
+        row.maxParticipantes
+      );
+    } catch (error) {
+      console.error("Erro ao recuperar formação:", error);
+      throw error;
     }
-
-    return formacaoEncontrada;
   }
 }
