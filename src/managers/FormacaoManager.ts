@@ -33,6 +33,35 @@ export class FormacaoManager {
     }
   }
 
+  listarFormacoes(): Formacao[] {
+    try {
+      const formacoes = this.daoFormacao.retorneFormacoesSei();
+      return formacoes;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
+
+  async existeFormacao(idFormacao: number, nomeLecionador: string): Promise<Boolean> {
+    try {
+      let formacao = await this.daoFormacao.retrieve(idFormacao)
+      if (formacao == null) {
+        return false
+      }
+
+      const respostaSei = this.dvoFormacao.existeFormacaoSei(
+        formacao.getNome,
+        nomeLecionador
+      );
+
+      return respostaSei;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+
   espelharFormacao(formacao: Formacao, nomeLecionador: string): void{
     try {
       const respostaSei = this.dvoFormacao.existeFormacaoSei(
