@@ -3,17 +3,19 @@ import axios from "axios";
 export class APIManager {
   private apigee: string = "https://apigee.googleapis.com/v1";
 
-  emit(idParticipante: number, idFormacao: number, cargaHorariaParticipante: number): Int8Array {
+  async emit(idParticipante: number, idFormacao: number, cargaHorariaParticipante: number): Promise<Int8Array> {
     try {
-        let response = axios.post(`${this.apigee}/emit/certificate`, {
+        let response = await axios.post(`${this.apigee}/emit/certificate`, {
             idParticipante: idParticipante,
             idFormacao: idFormacao,
             cargaHorariaParticipante: cargaHorariaParticipante
         }, {
-          ContentType: 'text/plain'
+          headers: {
+            'Content-Type': 'text/plain'
+          }
         });
 
-        return response.data;
+        return new Int8Array(response.data);
     } catch (error) {
       console.error(error);
       return new Int8Array();

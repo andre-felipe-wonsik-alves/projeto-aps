@@ -1,6 +1,5 @@
 import { DaoFormacao } from "../DAOs/DaoFormacao";
 import { DaoInscricao } from "../DAOs/DaoInscricao";
-import { DaoParticipante } from "../DAOs/DaoParticipante";
 
 export class DaoManager {
   /**
@@ -11,8 +10,5 @@ export class DaoManager {
   }
   public getDaoInscricao(): DaoInscricao {
     return new DaoInscricao();
-  }
-  public getDaoParticipante(): DaoParticipante {
-    return new DaoParticipante();
   }
 }

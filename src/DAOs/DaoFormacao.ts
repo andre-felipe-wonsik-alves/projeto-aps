@@ -70,7 +70,7 @@ export class DaoFormacao{
     return resultado;
   }
 
-  public async atualizar(formacao: Formacao): Promise<string> {
+  public async atualizarFormacao(formacao: Formacao): Promise<string> {
     try {
       const query = `UPDATE Formacao SET nome = ${formacao.getNome()}, cargaHoraria = ${formacao.getCargaHoraria()}, maxParticipantes = ${formacao.getMaxParticipantes()} WHERE idFormacao = ${formacao.getIdFormacao()};`;
 
@@ -85,7 +85,7 @@ export class DaoFormacao{
     }
   }
 
-  public async criar(formacao: Formacao): Promise<string> {
+  public async criarFormacao(formacao: Formacao): Promise<string> {
     try {
       const query = `INSERT INTO Formacao (idFormacao, nome, cargaHoraria, maxParticipantes) VALUES (${formacao.getIdFormacao()}, ${formacao.getNome()}, ${formacao.getCargaHoraria()}, ${formacao.getMaxParticipantes()});`;
 
@@ -101,7 +101,7 @@ export class DaoFormacao{
   }
 
   
-  public async apagar(idFormacao): Promise<string> {
+  public async apagarFormacao(idFormacao): Promise<string> {
     try {
       const query = `DELETE FROM Formacao WHERE Formacao.id == ${idFormacao}`;
 
@@ -116,7 +116,7 @@ export class DaoFormacao{
     }
   }
 
-  public async ler(idFormacao: number): Promise<Formacao> {
+  public async lerFormacao(idFormacao: number): Promise<Formacao> {
     try {
       const query = `SELECT * FROM Formacao WHERE idFormacao = $1`;
       const values = [idFormacao];
