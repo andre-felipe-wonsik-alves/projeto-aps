@@ -1,10 +1,5 @@
-// const lib = require("./src/imprimirCertificado/index.ts");
-import { main } from "./src/implementacoes/desatrelarFormacao/MockIndex";
-import dotenv from "dotenv";
+import { main } from "./src/implementacoes/desatrelarFormacao/MockIndex.js";
 import readline from "readline";
-
-dotenv.config();
-// lib.helloWorld();
 
 console.log(
   "\x1b[33m",
