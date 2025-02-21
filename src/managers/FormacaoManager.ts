@@ -35,7 +35,7 @@ export class FormacaoManager {
 
   listarFormacoes(): Formacao[] {
     try {
-      const formacoes = this.daoFormacao.retorneFormacoesSei();
+      const formacoes = this.daoFormacao.lerFormacoesSei();
       return formacoes;
     } catch (error) {
       console.error(error);
@@ -45,7 +45,7 @@ export class FormacaoManager {
 
   async existeFormacao(idFormacao: number, nomeLecionador: string): Promise<Boolean> {
     try {
-      let formacao = await this.daoFormacao.retrieve(idFormacao)
+      let formacao = await this.daoFormacao.ler(idFormacao)
       if (formacao == null) {
         return false
       }

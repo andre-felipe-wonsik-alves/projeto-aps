@@ -31,7 +31,7 @@ export class MockDaoFormacao {
     const resultado = {
       status: "200",
       data: {
-        message: `Formação de id ${idFormacao} apagada do SEI com sucesso!`,
+        message: `Formação de id ${idFormacao} atualizada no SEI com sucesso!`,
       },
     };
 
@@ -44,7 +44,7 @@ export class MockDaoFormacao {
     const resultado = {
       status: "200",
       data: {
-        message: `Formação de id ${idFormacao} criada do SEI com sucesso!`,
+        message: `Formação de id ${idFormacao} criada no SEI com sucesso!`,
       },
     };
 
@@ -57,6 +57,17 @@ export class MockDaoFormacao {
     const resultado = {
       status: "200",
       message: `Formação de id ${idFormacao} apagada do sistema com sucesso!`,
+    };
+
+    console.log(resultado.message);
+
+    return resultado;
+  }
+
+  public async criar(idFormacao): Promise<any> {
+    const resultado = {
+      status: "200",
+      message: `Formação de id ${idFormacao} criada no sistema com sucesso!`,
     };
 
     console.log(resultado.message);
