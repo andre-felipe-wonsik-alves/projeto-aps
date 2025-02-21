@@ -1,5 +1,9 @@
 # Formações UTFPR
 
+## AVISOS
+
+ - Alguns dos COs que são utilizados neste Código Final não estão no arquivo enviado para a apresentação de hoje (20/02/2025), mas estarão presentes no arquivo da recuperação.
+
 ## Requisitos do projeto
 
 ### Windows
