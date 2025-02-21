@@ -16,22 +16,6 @@ export class Professor extends ServidorUTFPR {
     return this.idProfessor;
   }
 
-  //public getServidorUTFPRMatriculaSiape(): number {
-  //  return super.getMatriculaSiape();
-  //}
-
-  //public getServidorUTFPRCpf(): string {
-    //return super.getCpf();
-  //}
-
-  //public getServidorUTFPRNome(): string {
-    //return super.getNome();
-  //}
-
-  //public getServidorUTFPRDataNascimento(): Date {
-    //return super.getDataNascimento();
-  //}
-
   public setIdProfessor(idProfessor: number){
     this.idProfessor = idProfessor;
   }

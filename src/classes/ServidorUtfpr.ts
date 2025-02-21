@@ -40,6 +40,3 @@ export class ServidorUTFPR {
     }
 
 }
-
-const data = new Date(2025, 0, 12);
-var Servidor1 = new ServidorUTFPR(6969, '696969', 'Bill', data);

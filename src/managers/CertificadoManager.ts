@@ -15,12 +15,12 @@ export class CertificadoManager {
 
   async imprimirCertificado(idParticipante: number, idFormacao: number): Promise<Int8Array> {
     try {
-      let inscricao = this.daoInscricao.consultarInscricao(idParticipante, idFormacao);
+      let inscricao = await this.daoInscricao.getInscricao(idParticipante, idFormacao);
       if (inscricao == null) {
         throw new Error("Inscrição não encontrada");
       }
 
-      return this.gerarCertificado(idParticipante, idFormacao, inscricao.cargaHoraria);
+      return this.gerarCertificado(idParticipante, idFormacao, inscricao.getCargaHorariaParticipante());
     } catch (error) {
       console.error(error);
       throw error;
