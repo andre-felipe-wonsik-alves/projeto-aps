@@ -3,9 +3,7 @@ import pool from "../../database";
 import axios from "axios";
 
 export class DaoFormacao{
-  // ! O método existeFormacaoSei possui 2 responsabilidades, o que é um problema
-  // ! Abstrair na próxima mudança.
-  public retorneFormacoesSei(): any {
+  public lerFormacoesSei(): any {
     const resultado = axios
       .get(`https://sei.utfpr.edu.br/sei/controlador.php/procedimento/`)
       .then(function (response) {
@@ -33,21 +31,6 @@ export class DaoFormacao{
       });
 
     return resultado;
-  }
-
-  public async apagarFormacao(idFormacao): Promise<string> {
-    try {
-      const query = `DELETE FROM Formacao WHERE Formacao.id == ${idFormacao}`;
-
-      const result = await pool.query(query);
-
-      console.log(`Formação de id: ${idFormacao} foi deletada com sucesso!`);
-
-      return result;
-    } catch (err) {
-      console.error(err);
-      return err;
-    }
   }
 
   public async criarFormacaoSei(formacao: Formacao) {
@@ -87,7 +70,7 @@ export class DaoFormacao{
     return resultado;
   }
 
-  public async atualizarFormacao(formacao: Formacao) {
+  public async atualizar(formacao: Formacao): Promise<string> {
     try {
       const query = `UPDATE Formacao SET nome = ${formacao.getNome()}, cargaHoraria = ${formacao.getCargaHoraria()}, maxParticipantes = ${formacao.getMaxParticipantes()} WHERE idFormacao = ${formacao.getIdFormacao()};`;
 
@@ -102,7 +85,7 @@ export class DaoFormacao{
     }
   }
 
-  public async criarFormacao(formacao: Formacao) {
+  public async criar(formacao: Formacao): Promise<string> {
     try {
       const query = `INSERT INTO Formacao (idFormacao, nome, cargaHoraria, maxParticipantes) VALUES (${formacao.getIdFormacao()}, ${formacao.getNome()}, ${formacao.getCargaHoraria()}, ${formacao.getMaxParticipantes()});`;
 
@@ -117,7 +100,23 @@ export class DaoFormacao{
     }
   }
 
-  public async retrieve(idFormacao: number): Promise<Formacao> {
+  
+  public async apagar(idFormacao): Promise<string> {
+    try {
+      const query = `DELETE FROM Formacao WHERE Formacao.id == ${idFormacao}`;
+
+      const result = await pool.query(query);
+
+      console.log(`Formação de id: ${idFormacao} foi deletada com sucesso!`);
+
+      return result;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+
+  public async ler(idFormacao: number): Promise<Formacao> {
     try {
       const query = `SELECT * FROM Formacao WHERE idFormacao = $1`;
       const values = [idFormacao];

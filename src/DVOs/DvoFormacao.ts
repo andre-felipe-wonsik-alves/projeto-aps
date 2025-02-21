@@ -7,7 +7,7 @@ export class DvoFormacao {
     this.daoFormacao = daoFormacao;
   }
   public existeFormacaoSei(nomeFormacao, nomeLecionador): any {
-    const formacoes = this.daoFormacao.retorneFormacoesSei();
+    const formacoes = this.daoFormacao.lerFormacoesSei();
 
     if (!formacoes.status) return { exists: "error" }; // ? Caso haja erro na requisição
 

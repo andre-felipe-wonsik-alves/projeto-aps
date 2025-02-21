@@ -10,7 +10,7 @@ export class DvoInscricao {
     // Método para validar a carga horária do participante em relação à formação
     public async validarCargaHoraria(cargaHorariaParticipante: number, idFormacao: number): Promise<boolean> {
         const dao = this.daoManager.getDaoFormacao();
-        const formacao = await dao.retrieve(idFormacao);
+        const formacao = await dao.ler(idFormacao);
         const cargaHorariaFormacao = formacao.getCargaHoraria();
 
         // Retorna true se a carga horária do participante for igual à da formação, caso contrário, false
