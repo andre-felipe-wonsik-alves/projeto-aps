@@ -19,8 +19,8 @@ export async function main() {
   );
 
   try {
-    const retorno = mockFormacaoManager.desatrelarFormacao(
-      novaFormacao.getNome(),
+    const retorno = mockFormacaoManager.espelharFormacao(
+      novaFormacao,
       "Eberzão Louback"
     );
 

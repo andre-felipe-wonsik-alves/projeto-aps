@@ -14,6 +14,7 @@ export class MockDaoFormacao {
     };
     return resultado;
   }
+  
   public apagarFormacaoSei(idFormacao): any {
     const resultado = {
       status: "200",

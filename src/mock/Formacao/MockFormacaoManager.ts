@@ -20,9 +20,12 @@ export class MockFormacaoManager {
         nomeLecionador
       );
 
+      console.log("MockFormacaoManager -=-> ", respostaSei);
+      console.log("\n");
+
       if (respostaSei) {
-        this.mockDaoFormacao.apagarFormacaoSei(respostaSei.data.id);
-        this.mockDaoFormacao.apagar(respostaSei.data.id);
+        this.mockDaoFormacao.apagarFormacaoSei(respostaSei.data.data.id);
+        this.mockDaoFormacao.apagar(respostaSei.data.data.id);
         return true;
       }
 
