@@ -76,7 +76,7 @@ export class DaoFormacao{
 
       const result = await pool.query(query);
 
-      console.log(`Formação de id: ${formacao.getIdFormacao()} foi atualizada com sucesso!`);
+      console.log(`DAO -> Formação de id: ${formacao.getIdFormacao()} foi atualizada com sucesso!`);
 
       return result;
     } catch (err) {

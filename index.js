@@ -22,17 +22,17 @@ const input = readline.createInterface({
 input.question("\n-> ", function (resposta) {
   switch (resposta) {
     case "1":
-      desatrelarFormacao();
+      validarCargaHoraria();
       break;
     case "2":
-      validarCargaHoraria();
+      desatrelarFormacao();
       break;
     case "3":
       espelharFormacao();
       break;
 
     default:
-      main();
+      console.log("Opção inválida!");
       break;
   }
 
