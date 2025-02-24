@@ -84,7 +84,7 @@ var MockDaoFormacao = /** @class */ (function () {
         console.log(resultado.data.message);
         return resultado;
     };
-    MockDaoFormacao.prototype.apagar = function (idFormacao) {
+    MockDaoFormacao.prototype.apagarFormacao = function (idFormacao) {
         return __awaiter(this, void 0, void 0, function () {
             var resultado;
             return __generator(this, function (_a) {
@@ -97,7 +97,7 @@ var MockDaoFormacao = /** @class */ (function () {
             });
         });
     };
-    MockDaoFormacao.prototype.criar = function (idFormacao) {
+    MockDaoFormacao.prototype.criarFormacao = function (idFormacao) {
         return __awaiter(this, void 0, void 0, function () {
             var resultado;
             return __generator(this, function (_a) {
@@ -110,7 +110,7 @@ var MockDaoFormacao = /** @class */ (function () {
             });
         });
     };
-    MockDaoFormacao.prototype.atualizar = function (formacao) {
+    MockDaoFormacao.prototype.atualizarFormacao = function (formacao) {
         return __awaiter(this, void 0, void 0, function () {
             var resultado;
             return __generator(this, function (_a) {
@@ -119,6 +119,23 @@ var MockDaoFormacao = /** @class */ (function () {
                     message: "Forma\u00E7\u00E3o de id ".concat(formacao.id, " atualizada com sucesso!"),
                 };
                 console.log(resultado.message);
+                return [2 /*return*/, resultado];
+            });
+        });
+    };
+    MockDaoFormacao.prototype.lerFormacao = function (formacao) {
+        return __awaiter(this, void 0, void 0, function () {
+            var resultado;
+            return __generator(this, function (_a) {
+                resultado = {
+                    status: "200",
+                    data: {
+                        id: 1,
+                        name: "Programação Orientada à Objetos: um estudo de caso",
+                        owner: "André Felipe Wonsik Alves",
+                    },
+                };
+                console.log(resultado.data.id);
                 return [2 /*return*/, resultado];
             });
         });

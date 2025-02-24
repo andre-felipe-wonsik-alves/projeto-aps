@@ -15,7 +15,7 @@ var MockFormacaoManager = /** @class */ (function () {
             console.log("\n");
             if (respostaSei) {
                 this.mockDaoFormacao.apagarFormacaoSei(respostaSei.data.data.id);
-                this.mockDaoFormacao.apagar(respostaSei.data.data.id);
+                this.mockDaoFormacao.apagarFormacao(respostaSei.data.data.id);
                 return true;
             }
             return false;
@@ -30,12 +30,13 @@ var MockFormacaoManager = /** @class */ (function () {
             var respostaSei = this.dvoFormacao.existeFormacaoSei(formacao.getNome, nomeLecionador);
             if (respostaSei) {
                 this.mockDaoFormacao.atualizarFormacaoSei(respostaSei.data);
-                this.mockDaoFormacao.atualizar(respostaSei.data);
+                this.mockDaoFormacao.atualizarFormacao(respostaSei.data);
             }
             else {
                 this.mockDaoFormacao.criarFormacaoSei(respostaSei.data);
-                this.mockDaoFormacao.criar(respostaSei.data);
+                this.mockDaoFormacao.criarFormacao(respostaSei.data);
             }
+            return this.mockDaoFormacao.lerFormacao(respostaSei.data.id);
         }
         catch (error) {
             console.error(error);
