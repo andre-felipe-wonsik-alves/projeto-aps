@@ -11,12 +11,12 @@ export class MockFormacaoManager {
     this.dvoFormacao = dvoFormacao;
   }
 
-  desatrelarFormacao(nomeFormacao: string, nomeLecionador: string): boolean {
+  desatrelarFormacao(idFormacao: number, nomeLecionador: string): boolean {
     // * << Pedagogo dispara o gatilho que apaga uma formação do sistema >>
-    // * Vindo com ele, temos: nomeFormacao e nomeLecionador.
+    // * Vindo com ele, temos: idFormacao e nomeLecionador.
     try {
       const respostaSei = this.dvoFormacao.existeFormacaoSei(
-        nomeFormacao,
+        idFormacao,
         nomeLecionador
       );
 

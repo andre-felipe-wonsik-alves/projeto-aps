@@ -5,14 +5,13 @@ var MockDvoFormacao = /** @class */ (function () {
     function MockDvoFormacao(mockDaoFormacao) {
         this.mockDaoFormacao = mockDaoFormacao;
     }
-    MockDvoFormacao.prototype.existeFormacaoSei = function (nomeFormacao, nomeLecionador) {
+    MockDvoFormacao.prototype.existeFormacaoSei = function (idFormacao, nomeLecionador) {
         var formacoes = this.mockDaoFormacao.retorneFormacoesSei();
         if (!formacoes.status)
             return { exists: "error" }; // ? Caso haja erro na requisição
-        for (var campoFormacao in formacoes) {
-            if ((campoFormacao == "name" || campoFormacao == "owner") &&
-                (formacoes[campoFormacao] == nomeFormacao ||
-                    formacoes[campoFormacao] == nomeLecionador)) {
+        for (var _i = 0, _a = formacoes.data; _i < _a.length; _i++) {
+            var formacao = _a[_i];
+            if ((formacao.id == idFormacao || formacao.owner == nomeLecionador)) {
                 return { exists: true, data: formacoes }; // ? Caso já exista a formação no SEI
             }
         }

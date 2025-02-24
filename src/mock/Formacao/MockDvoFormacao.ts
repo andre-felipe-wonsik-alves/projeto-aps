@@ -6,16 +6,14 @@ export class MockDvoFormacao {
   constructor(mockDaoFormacao: MockDaoFormacao) {
     this.mockDaoFormacao = mockDaoFormacao;
   }
-  public existeFormacaoSei(nomeFormacao, nomeLecionador): any {
+  public existeFormacaoSei(idFormacao, nomeLecionador): any {
     const formacoes = this.mockDaoFormacao.retorneFormacoesSei();
 
     if (!formacoes.status) return { exists: "error" }; // ? Caso haja erro na requisição
 
-    for (const campoFormacao in formacoes) {
+    for (const formacao of formacoes.data) {
       if (
-        (campoFormacao == "name" || campoFormacao == "owner") &&
-        (formacoes[campoFormacao] == nomeFormacao ||
-          formacoes[campoFormacao] == nomeLecionador)
+        (formacao.id == idFormacao || formacao.owner == nomeLecionador)
       ) {
         return { exists: true, data: formacoes }; // ? Caso já exista a formação no SEI
       }

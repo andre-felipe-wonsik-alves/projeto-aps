@@ -20,7 +20,7 @@ export async function main() {
 
   try {
     const retorno = mockFormacaoManager.desatrelarFormacao(
-      novaFormacao.getNome(),
+      novaFormacao.getIdFormacao(),
       "André Felipe Wonsik Alves"
     );
 
