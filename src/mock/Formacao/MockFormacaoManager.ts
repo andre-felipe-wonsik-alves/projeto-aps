@@ -25,7 +25,7 @@ export class MockFormacaoManager {
 
       if (respostaSei) {
         this.mockDaoFormacao.apagarFormacaoSei(respostaSei.data.data.id);
-        this.mockDaoFormacao.apagar(respostaSei.data.data.id);
+        this.mockDaoFormacao.apagarFormacao(respostaSei.data.data.id);
         return true;
       }
 
@@ -36,7 +36,7 @@ export class MockFormacaoManager {
     }
   }
 
-  espelharFormacao(formacao: Formacao, nomeLecionador: string): void{
+  espelharFormacao(formacao: Formacao, nomeLecionador: string): Promise<Formacao> {
       try {
         const respostaSei = this.dvoFormacao.existeFormacaoSei(
           formacao.getNome,
@@ -45,12 +45,13 @@ export class MockFormacaoManager {
   
         if (respostaSei) {
           this.mockDaoFormacao.atualizarFormacaoSei(respostaSei.data);
-          this.mockDaoFormacao.atualizar(respostaSei.data);
+          this.mockDaoFormacao.atualizarFormacao(respostaSei.data);
         }
         else{
           this.mockDaoFormacao.criarFormacaoSei(respostaSei.data);
-          this.mockDaoFormacao.criar(respostaSei.data);
+          this.mockDaoFormacao.criarFormacao(respostaSei.data);
         }
+        return this.mockDaoFormacao.lerFormacao(respostaSei.data.id);
       } catch (error) {
         console.error(error);
       }

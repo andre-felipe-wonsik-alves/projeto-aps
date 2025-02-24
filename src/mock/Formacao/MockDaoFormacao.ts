@@ -54,7 +54,7 @@ export class MockDaoFormacao {
     return resultado;
   }
 
-  public async apagar(idFormacao): Promise<any> {
+  public async apagarFormacao(idFormacao): Promise<any> {
     const resultado = {
       status: "200",
       message: `Formação de id ${idFormacao} apagada do sistema com sucesso!`,
@@ -65,7 +65,7 @@ export class MockDaoFormacao {
     return resultado;
   }
 
-  public async criar(idFormacao): Promise<any> {
+  public async criarFormacao(idFormacao): Promise<any> {
     const resultado = {
       status: "200",
       message: `Formação de id ${idFormacao} criada no sistema com sucesso!`,
@@ -76,13 +76,28 @@ export class MockDaoFormacao {
     return resultado;
   }
 
-  public async atualizar(formacao): Promise<any> {    
+  public async atualizarFormacao(formacao): Promise<any> {    
     const resultado = {
       status: "200",
       message: `Formação de id ${formacao.id} atualizada com sucesso!`,
     };
 
     console.log(resultado.message);
+
+    return resultado;
+  }
+
+  public async lerFormacao(formacao): Promise<any> {    
+    const resultado = {
+      status: "200",
+      data: {
+        id: 1,
+        name: "Programação Orientada à Objetos: um estudo de caso",
+        owner: "André Felipe Wonsik Alves",
+      },
+    };
+
+    console.log(resultado.data.id);
 
     return resultado;
   }
